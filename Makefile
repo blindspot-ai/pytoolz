@@ -1,11 +1,13 @@
-.PHONY: help build clean setup setup-dev install release-check type-check flake8-check lint tests
+.PHONY: help build clean clean-build setup setup-dev install release-check type-check flake8-check lint tests twine-release-test
 
 .DEFAULT: help
 help:
 	@echo "make build"
-	@echo "       build distribution directory"
+	@echo "       build distribution directories"
 	@echo "make clean"
-	@echo "       clean virtual environment"
+	@echo "       clean virtual environment and distribution"
+	@echo "make clean-build"
+	@echo "       clean distribution directories"
 	@echo "make setup"
 	@echo "       setup development environment"
 	@echo "make setup-dev"
@@ -22,13 +24,17 @@ help:
 	@echo "       run unit and doc tests"
 	@echo "make release-check"
 	@echo "       run type-check, flake8 check, linting and tests"
+	@echo "make twine-release-test"
+	@echo "       release ftoolz to test pypi using twine"
 
-build:
+build: clean-build
 	@echo ">>> building ftoolz distribution"
-	python setup.py sdist bdist_wheel
+	python setup.py sdist
 
-clean:
+clean: clean-build
 	rm -rf venv
+
+clean-build:
 	rm -rf dist
 	rm -rf build
 	rm -rf *.egg-info
@@ -63,3 +69,6 @@ tests:
 #	python setup.py test
 
 release-check: type-check flake8-check lint tests
+
+twine-release-test: build
+	python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
