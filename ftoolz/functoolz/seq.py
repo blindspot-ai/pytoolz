@@ -3,8 +3,8 @@ from typing import Any, Callable, Tuple
 
 from cytoolz.itertoolz import identity, mapcat
 
-from pytoolz.functoolz import A, A_in, A_out, B, B_in, B_out, C_out
-from pytoolz.typing import Seq
+from ftoolz.functoolz import A, A_in, A_out, B, B_in, B_out, C_out
+from ftoolz.typing import Seq
 
 
 def apply(ff: Seq[Callable[[A_in], B_out]], fa: Seq[A_in]) -> Seq[B_out]:

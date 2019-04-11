@@ -1,6 +1,6 @@
 from typing import Any, TypeVar
 
-from pytoolz.typing import Map
+from ftoolz.typing import Map
 
 K = TypeVar('K')
 V = TypeVar('V')

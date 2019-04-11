@@ -1,6 +1,6 @@
 from typing import Any, Callable, Optional, Tuple
 
-from pytoolz.functoolz import A, A_in, A_out, B, B_in, B_out, C_in, C_out, \
+from ftoolz.functoolz import A, A_in, A_out, B, B_in, B_out, C_in, C_out, \
     D_out
 
 

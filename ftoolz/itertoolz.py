@@ -6,7 +6,7 @@ from typing import Callable, Iterable, List, Optional, Reversible, Tuple, \
 from cytoolz.functoolz import complement, compose
 from cytoolz.itertoolz import drop, identity, last as clast, peek, unique
 
-from pytoolz.typing import Map, Seq
+from ftoolz.typing import Map, Seq
 
 A = TypeVar('A')
 B = TypeVar('B')

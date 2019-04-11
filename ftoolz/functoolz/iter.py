@@ -3,7 +3,7 @@ from typing import Any, Callable, Iterable, Tuple
 
 from cytoolz.itertoolz import identity, mapcat
 
-from pytoolz.functoolz import A, A_in, A_out, B, B_in, B_out, C_out
+from ftoolz.functoolz import A, A_in, A_out, B, B_in, B_out, C_out
 
 
 def apply(

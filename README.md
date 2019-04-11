@@ -1,10 +1,10 @@
-# pytoolz
-[![Build Status](https://travis-ci.com/blindspot-ai/pytoolz.svg?branch=master)](https://travis-ci.com/blindspot-ai/pytoolz) [![Coverage Status](https://coveralls.io/repos/github/blindspot-ai/pytoolz/badge.svg?branch=master)](https://coveralls.io/github/blindspot-ai/pytoolz?branch=master)
+# ftoolz
+[![Build Status](https://travis-ci.com/blindspot-ai/ftoolz.svg?branch=master)](https://travis-ci.com/blindspot-ai/ftoolz) [![Coverage Status](https://coveralls.io/repos/github/blindspot-ai/ftoolz/badge.svg?branch=master)](https://coveralls.io/github/blindspot-ai/ftoolz?branch=master)
 
 Collection of higher-order and utility functions built on top of `cytoolz`.
 
 ## Module overview
-Pytoolz are split into few generic modules.
+Ftoolz are split into few generic modules.
 
 ### functoolz package
 Package that provides higher-order functions commonly associated with Functor, Applicative and Monad. 
@@ -117,14 +117,14 @@ Cytoolz is a cython implementation of a python library supporting functional sty
 
 We highly recommend reading the API docs and using it in your project.
 
-Pytoolz does not fork but rather extends cytoolz and provides typed stubs for it's API. 
+Ftoolz does not fork but rather extends cytoolz and provides typed stubs for it's API. 
 Please note that the typed stubs do not cover all the functions from cytoolz. 
 
 Also some valid cases might not be covered due to Python's restricted typing capabilities.
 
 ## Setup development environment
-It is highly recommended to use virtual environment to develop and test `pytoolz`. For making things easy there are 
-two make targets to setup `pytoolz`:
+It is highly recommended to use virtual environment to develop and test `ftoolz`. For making things easy there are 
+two make targets to setup `ftoolz`:
 * `make setup-dev` which creates new virtual environment in `./venv`
 * `make setup` that just installs dependencies for development
 
@@ -145,7 +145,7 @@ make type-check
 ```
 
 ### Code style checking
-Pytoolz uses [Flake8](http://flake8.pycqa.org/en/latest/index.html) for enforcing PEP 8 and other code smells.
+Ftoolz uses [Flake8](http://flake8.pycqa.org/en/latest/index.html) for enforcing PEP 8 and other code smells.
 ```bash
 make flake8-check
 ``` 

@@ -2,10 +2,10 @@ from typing import Callable, Iterable, Optional
 
 from cytoolz.itertoolz import cons, identity
 
-from pytoolz.functoolz import A, A_in, B
-from pytoolz.functoolz.opt import fmap, fmap2
-from pytoolz.itertoolz import fold_right
-from pytoolz.typing import Seq
+from ftoolz.functoolz import A, A_in, B
+from ftoolz.functoolz.opt import fmap, fmap2
+from ftoolz.itertoolz import fold_right
+from ftoolz.typing import Seq
 
 
 def sequence_iter(gfa: Iterable[Optional[A]]) -> Optional[Iterable[A]]:
