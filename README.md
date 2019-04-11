@@ -1,4 +1,5 @@
 # pytoolz
+[![Coverage Status](https://coveralls.io/repos/github/blindspot-ai/pytoolz/badge.svg?branch=master)](https://coveralls.io/github/blindspot-ai/pytoolz?branch=master)
 
 Collection of higher-order and utility functions built on top of `cytoolz`.
 
