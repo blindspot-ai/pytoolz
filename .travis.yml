@@ -7,10 +7,10 @@ python:
 
 install:
   - make install
+  - pip install coveralls
 
 script:
   - make release-check
 
 after_success:
-  - pip install coveralls --use-mirrors
   - coveralls
