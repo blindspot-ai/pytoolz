@@ -28,7 +28,7 @@ deploy:
   on:
     # branch: master
     branch: configure-bumpversion
-    server: https://test.pypi.org/simple/
+    server: https://test.pypi.org/legacy/
     tags: true
     python: 3.6
     skip_existing: true
