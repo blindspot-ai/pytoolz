@@ -2,8 +2,8 @@ sudo: required
 dist: xenial
 language: python
 python:
-  - "3.6"
   - "3.7"
+  - "3.6"
 
 install:
   - make install
@@ -31,3 +31,4 @@ deploy:
     tags: true
     python: 3.6
     skip_existing: true
+    skip_cleanup: true
