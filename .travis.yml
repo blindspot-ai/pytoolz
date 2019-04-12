@@ -24,6 +24,7 @@ deploy:
     # test
     secure: eXdTBxdl4Ro4mgpNhbt/FxooQbvq0omLTJe4yjGqUCX8qSn8k/JkaJjvyMVgU0ZFvzm35cUCYj/oGlRepToVJYZalBI4/O3kZsnRnADwecKrjycLQs8MOCWhX4ZOExpuHHr+XieYvLw50HsIt09x/g0iEMmwR+OgW/d3pdoVpKitnkPoL65hoSZVps7SzbbhIEO8qbYOESLXHLGtqS98kpBEld89Lj0W9NPqaH2Gzpzrq9GBTWfywhzLvkMeEDhoxwecIBTRl3iVvcf6sF2q2k6KdrwTtDikxfCH+psKR1MIKOuB3vCGQAKPjmYDqAC8vonrAvJYIU1DHGIVQq15qDbpTBiyw/YUTgE+3TcFazx7VCt1pXNrMcU7Ayif5deKnKJ5bC8iu472DurCQ2a6TZOkRGJfM+ysTS94JdU+Ng5R4Bd1aDU1fh4VVGjsnJrs7ziXRWHLNLniGkarkl/v1/5xbIjGT6ZQj8fSnKZEOynAkKPiQMDN+WMnKcGdCVmuKhe6ZIsurb/If0Ozff/syvnxYj6ZSI0Ey8lOLYZ/sK569lE9U9jVv6AOaij+OYYmWCJRWmO9c/yepSuOuoSflyEyTGxg8RSL7PdCZEga1qcrFLyokj3DU4ReqC6g6N3YC/B2QS1AURgzqUgAY3ydHaLaFY9jsYEaJmkoCW9XCaM=
   distributions: sdist
+  skip_cleanup: true
   on:
     # branch: master
     branch: configure-bumpversion
@@ -31,4 +32,3 @@ deploy:
     tags: true
     python: 3.6
     skip_existing: true
-    skip_cleanup: true
