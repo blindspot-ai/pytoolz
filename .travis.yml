@@ -25,10 +25,10 @@ deploy:
     secure: "ZZVuRbmRPChcSJbOk9i6QUIXIeXv96DKCDUw90s04Ea2iuOz4yDTizJevNW7gz+AQtECfUVAMqNi2bt2QJ179PQzi2AptcvgpxXz1pTTziIwdv4uaZANDO5qt4s2uApUkKFAa15ovMoODtTPLhMVtVxEJww32YEZ/O7/jVW3P6V+PRVmdCaWf5ZvlSe2XGkV+Ydj4NDp9/c+bVjAZC9AOJefw0zTEMWKEeuqHOS7Qq6ocGqmTTRIvtcWOiInZQKnfLjelPlrKEgeQZAv4qKyfv9S4pkDaIRLTNUaPVBGhYTZPojxdUGwORKUxkBeqY5es8vs34eu48w4NEgKCfnm1MB1zdQcl1KBd6oyFAufpw3JqN4e8pyjaNeQuwPH5fCFvPZLEgEJq9nMTpdxRLU8gp7SfgYDZP2JYBQsLvAD5h//+HNCmiiqIkTXc/p1PwUFwh/wyj5mDJO0rHeb13xLMyHUbMN9VyYfCA9lbaBT6LRJcdNOZgMAv81piRckXyBImXPm4Yk3xdCPbo+BhVvAXIroPL2qDkXuOfiCVUlc/5qnezyYbnDnyXDS9vJckpA87TBspktiiT6Ylt4JRwn09ubV7NTq6H+XQcuUTFqqAMeJ22kq8v/XNsYXaR4bofgnlJI3/BLatasWytFaSoqxjVT0jjSw0YXJX3lu+dWh7MY="
   distributions: sdist
   skip_cleanup: true
+  server: https://testpypi.python.org/pypi
   on:
     # branch: master
     branch: configure-bumpversion
-    server: https://testpypi.python.org/pypi
     # tags: true
     python: 3.6
     skip_existing: true
