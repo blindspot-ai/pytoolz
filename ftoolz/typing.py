@@ -27,7 +27,7 @@ def assert_some(a: Optional[A]) -> A:
     return a
 
 
-def seq(it: Optional[Iterable[A]] = None) -> Seq[A]:
+def seq(it: Iterable[A] = ()) -> Seq[A]:
     """
     Type constructor for immutable :class:`Seq`.
 
@@ -46,4 +46,4 @@ def seq(it: Optional[Iterable[A]] = None) -> Seq[A]:
     >>> seq()
     ()
     """
-    return tuple(it) if it is not None else tuple()
+    return tuple(it)
