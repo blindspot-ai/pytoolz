@@ -123,6 +123,7 @@ Table of contents
 
 | Predicate | Description |
 |-----------|-------------|
+| `cstrip(chars, str)` | Curried-ready version of `strip` |
 | `lower(str)` | Make given string lowercase |
 | `strip(str, chars)` | Same as `sring.strip(chars)` |
 | `upper(str)` | Make given string uppercase |
