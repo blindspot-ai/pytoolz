@@ -113,6 +113,20 @@ Table of contents
 | `even(integer)` | `True` iff integer is even |
 | `odd(integer)` | `True` iff integer is odd |
 
+### strtoolz
+This module contains some functions that are commonly known as methods on `str`.
+
+*Motivation*: Despite being simple, these functions can replace unnecessary lambdas when 
+working with higher-order functions such as cytoolz [keymap](https://toolz.readthedocs.io/en/latest/api.html#toolz.dicttoolz.keymap) and similar. 
+
+Table of contents
+
+| Predicate | Description |
+|-----------|-------------|
+| `lower(str)` | Make given string lowercase |
+| `strip(str, chars)` | Same as `sring.strip(chars)` |
+| `upper(str)` | Make given string uppercase |
+
 ### typing
 Typing contains helpful type aliases and other type-related definitions.
 
