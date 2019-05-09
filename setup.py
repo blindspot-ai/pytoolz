@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-
+import json
 from os.path import exists
+
 from setuptools import find_packages, setup
 from setuptools.dist import Distribution
 
@@ -14,22 +15,17 @@ class BinaryDistribution(Distribution):
         return True
 
 
-ftoolz_requirements = [
-    'cytoolz==0.9.0.1',
-    'cytoolz-stubs==0.0.1',
-]
+with open('Pipfile.lock') as pipfile_lock:
+    lock_data = json.load(pipfile_lock)
 
-dev_requirements = [
-    'bumpversion==0.5.3',
-    'twine==1.13.0',
+requirements = [
+    package_name
+    for package_name in lock_data['default'].keys()
 ]
 
 test_requirements = [
-    'coverage==4.5.1',
-    'flake8==3.7.7',
-    'mypy==0.701',
-    'nose==1.3.7',
-    'pylint==2.3.1',
+    package_name
+    for package_name in lock_data['develop'].keys()
 ]
 
 setup(
@@ -59,8 +55,7 @@ setup(
     distclass=BinaryDistribution,
     zip_safe=False,
     python_requires='>=3.6',
-    install_requires=ftoolz_requirements,
-    extras_require={'dev': dev_requirements, 'test': test_requirements},
+    install_requires=requirements,
     test_suite='tests',
-    tests_require=ftoolz_requirements + test_requirements,
+    tests_require=test_requirements,
 )
