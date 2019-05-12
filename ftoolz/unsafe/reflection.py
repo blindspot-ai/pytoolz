@@ -3,11 +3,12 @@ from typing import List, Set, Type, TypeVar
 T = TypeVar('T')
 
 
-def abstract(clz: Type[T]) -> bool:
+def abstract(clz: Type) -> bool:
     """
     Predicate that returns `True` iff given class has abstract methods.
 
     >>> from abc import ABC, abstractmethod
+
     >>> class A(ABC):
     ...     @abstractmethod
     ...     def test(self) -> None:
@@ -20,6 +21,16 @@ def abstract(clz: Type[T]) -> bool:
     ...         pass
     >>> abstract(B)
     False
+
+    >>> class C(ABC):
+    ...     pass
+    >>> abstract(C)
+    False
+
+    >>> class D(A):
+    ...     pass
+    >>> abstract(D)
+    True
     """
     return bool(getattr(clz, "__abstractmethods__", False))
 
