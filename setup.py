@@ -1,6 +1,8 @@
 #!/usr/bin/env python
+
 import json
 from os.path import exists
+from typing import Sequence
 
 from setuptools import find_packages, setup
 from setuptools.dist import Distribution
@@ -18,15 +20,14 @@ class BinaryDistribution(Distribution):
 with open('Pipfile.lock') as pipfile_lock:
     lock_data = json.load(pipfile_lock)
 
-requirements = [
-    package_name
-    for package_name in lock_data['default'].keys()
-]
 
-test_requirements = [
-    package_name
-    for package_name in lock_data['develop'].keys()
-]
+def requirements(section: str) -> Sequence[str]:
+    """List versioned requirements from given section of Pipfile.lock"""
+    return [
+        f"{package_name}{package_data['version']}"
+        for package_name, package_data in lock_data[section].items()
+    ]
+
 
 setup(
     name='ftoolz',
@@ -55,7 +56,7 @@ setup(
     distclass=BinaryDistribution,
     zip_safe=False,
     python_requires='>=3.6',
-    install_requires=requirements,
+    install_requires=requirements('default'),
     test_suite='tests',
-    tests_require=test_requirements,
+    tests_require=requirements('develop'),
 )
