@@ -161,8 +161,8 @@ def subclasses(clz: Type[T], package: str) -> Set[Type[T]]:
     """
 
     def rec(cls: Type[T]) -> Set[Type[T]]:
-        return set(cls.__subclasses__()) \
-            .union([s for c in cls.__subclasses__() for s in rec(c)])
+        sub = set(cls.__subclasses__())
+        return sub.union(s for c in sub for s in rec(c))
 
     import_all(package)
     return rec(clz)
