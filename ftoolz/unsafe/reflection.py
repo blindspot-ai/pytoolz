@@ -1,4 +1,4 @@
-from typing import List, Set, Type, TypeVar
+from typing import List, Set, Type, TypeVar, cast
 
 T = TypeVar('T')
 
@@ -46,47 +46,23 @@ def implementations(clz: Type[T], package: str) -> List[Type[T]]:
 
     **Warning**: Class discovery uses `import_all` so any side-effect of any
     import under the package will be executed as a side-effect of this function
-
-    >>> from abc import ABC, abstractmethod
-
-    >>> class A(ABC):
-    ...     @abstractmethod
-    ...     def test(self) -> None:
-    ...         pass
-    ...     @abstractmethod
-    ...     def test2(self) -> None:
-    ...         pass
-
-    >>> class B(A, ABC):
-    ...     def test(self) -> None:
-    ...         pass
-    >>> class C(B):
-    ...     def test2(self) -> None:
-    ...         pass
-    >>> class D(C):
-    ...     def test2(self) -> None:
-    ...         pass
-
-    >>> class E(A):
-    ...     def test(self) -> None:
-    ...         pass
-    ...     def test2(self) -> None:
-    ...         pass
-    >>> class F(E):
-    ...     __protected__ = True
-
-    >>> [c.__name__ for c in implementations(A, __package__)]
-    ['C', 'D', 'E']
-    >>> [c.__name__ for c in implementations(B, __package__)]
-    ['C', 'D']
-    >>> [c.__name__ for c in implementations(E, __package__)]
-    []
     """
-    instances = (
-        c for c in subclasses(clz, package)
+    import importlib
+
+    def load(c: Type[T]) -> Type[T]:
+        module_name = f'{package}.{c.__module__}' \
+            if not str(c.__module__).startswith(package) \
+            else str(c.__module__)
+        module = importlib.import_module(module_name)
+        return cast(Type[T], getattr(module, c.__name__))
+
+    classes = (
+        load(c)
+        for c in subclasses(clz, package)
         if not abstract(c) and not protected(c)
     )
-    return sorted(instances, key=lambda c: c.__name__)
+
+    return sorted(classes, key=lambda c: c.__name__)
 
 
 def import_all(package: str) -> None:
