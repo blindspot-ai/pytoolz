@@ -45,6 +45,7 @@ class MutIter(Iterator[_E], Sized):
         >>> MutIter([1, 2, 3])
         MutIter(state=deque([1, 2, 3]))
         """
+        super().__init__()
         self._state: Deque[_E] = deque(state) if state is not None else deque()
 
     @staticmethod
