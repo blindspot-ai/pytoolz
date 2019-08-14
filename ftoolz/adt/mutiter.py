@@ -6,7 +6,7 @@ from ftoolz.typing import Seq
 _E = TypeVar('_E')
 
 
-class MutIter(Iterator[_E], Sized):
+class MutIter(Iterator[_E], Sized):  # pylint: disable=E0239
     """
     Mutable iterator that can be both appended and consumend. Example usage is
     as an accumulator for `reduceby`.
