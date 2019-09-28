@@ -45,3 +45,39 @@ def odd(n: int) -> bool:
     [(0, False), (1, True), (2, False), (3, True), (4, False)]
     """
     return n % 2 != 0
+
+
+def vand(*args: A) -> bool:
+    """
+    Variadic `and` over given set of arguments.
+
+    >>> vand()
+    True
+    >>> vand(True, True, True)
+    True
+    >>> vand(1, 1, 1)
+    True
+    >>> vand(True, False, True)
+    False
+    >>> vand(1, 0, 1)
+    False
+    """
+    return all(bool(a) for a in args) if args else True
+
+
+def vor(*args: A) -> bool:
+    """
+    Variadic `or` over given set of arguments.
+
+    >>> vor()
+    False
+    >>> vor(False, False, False)
+    False
+    >>> vor(0, 0, 0)
+    False
+    >>> vor(False, False, True)
+    True
+    >>> vor(0, 0, 1)
+    True
+    """
+    return any(bool(a) for a in args) if args else False
