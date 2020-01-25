@@ -47,37 +47,37 @@ def odd(n: int) -> bool:
     return n % 2 != 0
 
 
-def vand(*args: A) -> bool:
+def vall(*args: A) -> bool:
     """
     Variadic `and` over given set of arguments.
 
-    >>> vand()
+    >>> vall()
     True
-    >>> vand(True, True, True)
+    >>> vall(True, True, True)
     True
-    >>> vand(1, 1, 1)
+    >>> vall(1, 1, 1)
     True
-    >>> vand(True, False, True)
+    >>> vall(True, False, True)
     False
-    >>> vand(1, 0, 1)
+    >>> vall(1, 0, 1)
     False
     """
     return all(bool(a) for a in args) if args else True
 
 
-def vor(*args: A) -> bool:
+def vany(*args: A) -> bool:
     """
     Variadic `or` over given set of arguments.
 
-    >>> vor()
+    >>> vany()
     False
-    >>> vor(False, False, False)
+    >>> vany(False, False, False)
     False
-    >>> vor(0, 0, 0)
+    >>> vany(0, 0, 0)
     False
-    >>> vor(False, False, True)
+    >>> vany(False, False, True)
     True
-    >>> vor(0, 0, 1)
+    >>> vany(0, 0, 1)
     True
     """
     return any(bool(a) for a in args) if args else False
